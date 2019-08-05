@@ -4,7 +4,7 @@ export default class CreateMovie extends Component {
   render() {
     return (
       <div>
-        <p>Create: Add Movie</p>
+        <p>Content: Discover page for new movies</p>
       </div>
     )
   }
