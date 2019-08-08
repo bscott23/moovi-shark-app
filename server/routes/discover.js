@@ -48,11 +48,11 @@ router.route('/').get( async (req, res) => {
       
         const moviesArr = [];
       
-        for (var { id: i, title: t, overview: o, release_date: r, genre_ids: g, poster_path: p} of moviesResponse.results) {
+        for (var { id: i, title: t, overview: o, release_date: r, genre_ids: g, poster_path: p } of moviesResponse.results) {
           moviesArr.push({ movie_db_id: i, title: t, overview: o, genres: genreMap(g), release_date: r, poster_path: p });
         }
-        
-        return { movies: moviesArr };
+        return moviesArr;
+        console.log(typeof moviesArr)
         }
 
     res.send(await discoverMovies());

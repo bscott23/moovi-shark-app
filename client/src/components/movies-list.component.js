@@ -7,7 +7,7 @@ const Movie = props => (
     <td>{props.movie.username}</td>
     <td>{props.movie.title}</td>
     <td>{props.movie.overview}</td>
-    <td>{props.movie.release_date.substring(0,10)}</td>
+    <td>{props.movie.release_date.substring(0, 10)}</td>
     <td>
       <a
         href="#"
