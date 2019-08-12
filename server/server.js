@@ -25,7 +25,7 @@ const watchlistRouter = require('./routes/watchlist');
 const usersRouter = require('./routes/users');
 
 app.use('/discover', discoverRouter)
-app.use('/movies', watchlistRouter);
+app.use('/watchlist', watchlistRouter);
 app.use('/users', usersRouter);
 
 app.listen(port, () => {

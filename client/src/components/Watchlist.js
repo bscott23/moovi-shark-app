@@ -30,7 +30,7 @@ export default class MoviesList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/movies/")
+      .get("http://localhost:5000/watchlist/")
       .then(response => {
         this.setState({ movies: response.data });
       })
@@ -41,11 +41,13 @@ export default class MoviesList extends Component {
 
   deleteMovie(id) {
     axios
-      .delete("http://localhost:5000/movies/" + id)
+      .delete("http://localhost:5000/watchlist/" + id)
       .then(res => console.log(res.data));
     this.setState({
-      exercises: this.state.movies.filter(el => el._id !== id)
+      movies: this.state.movies.filter(el => el._id !== id)
     });
+
+    window.location = '/watchlist'; // refreshes watchlist
   }
 
   movieList() {

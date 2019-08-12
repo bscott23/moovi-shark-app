@@ -2,19 +2,50 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 class DiscoverMovies extends Component {
   constructor() {
     super();
+
+    this.onAddMovie = this.onAddMovie.bind(this);
+
     this.state = {
       isLoading: true,
-      discover: {}
+      discover: {},
+      selectedMovie: {
+        title: "",
+        overview: "",
+        genres: [],
+        release_date: "",
+        poster_path: "",
+        movie_db_id: 0,
+      }
     };
   }
 
   async componentDidMount() {
-    let res = await fetch("http://localhost:5000/discover/");
+    const res = await fetch("http://localhost:5000/discover/");
     this.setState({ discover: await res.json(), isLoading: false });
+  }
+
+  onAddMovie(movie) {
+    const newMovie = {
+        username: "bscott23", // need to add username functionality
+        title: movie.title,
+        overview: movie.overview,
+        genres: movie.genres,
+        release_date: movie.release_date,
+        poster_path: movie.poster_path,
+        movie_db_id: movie.movie_db_id,
+    };
+    
+    axios
+      .post("http://localhost:5000/watchlist/add", newMovie)
+      .then(res => console.log(res.data));
+
+
+    window.location = '/watchlist'; // can return users to watchlist
   }
 
   mapMovieCards = () => {
@@ -33,7 +64,7 @@ class DiscoverMovies extends Component {
               <Card.Body>
               <Card.Title>{movie.title}</Card.Title>
               <Card.Text>{movie.overview}</Card.Text>
-              <Button variant="outline-primary">Add</Button>
+              <Button variant="outline-primary" onClick={() => this.onAddMovie(movie)}>Add</Button>
               </Card.Body>
               </Card>
       ))
@@ -58,7 +89,7 @@ class DiscoverMovies extends Component {
             <h1>Loading...</h1>
           ) : this.mapMovieCards()}</div>
         <br style = {{"line-height":50}}></br>
-        <div textAlign="center"><Button variant="primary" block>Watchlist</Button></div>
+        <div textAlign="center"><Button variant="primary" href="http://localhost:3000/watchlist/" block>View Watchlist</Button></div>
         <br style = {{"line-height":50}}></br>
       </div>
     );
