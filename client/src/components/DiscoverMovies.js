@@ -4,7 +4,7 @@ import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 
-class DiscoverMovies extends Component {
+export default class DiscoverMovies extends Component {
   constructor() {
     super();
 
@@ -12,15 +12,7 @@ class DiscoverMovies extends Component {
 
     this.state = {
       isLoading: true,
-      discover: {},
-      selectedMovie: {
-        title: "",
-        overview: "",
-        genres: [],
-        release_date: "",
-        poster_path: "",
-        movie_db_id: 0,
-      }
+      discover: {}
     };
   }
 
@@ -31,7 +23,7 @@ class DiscoverMovies extends Component {
 
   onAddMovie(movie) {
     const newMovie = {
-        username: "bscott23", // need to add username functionality
+        username: "test-user", // placeholder until user functionality is added
         title: movie.title,
         overview: movie.overview,
         genres: movie.genres,
@@ -43,9 +35,6 @@ class DiscoverMovies extends Component {
     axios
       .post("http://localhost:5000/watchlist/add", newMovie)
       .then(res => console.log(res.data));
-
-
-    window.location = '/watchlist'; // can return users to watchlist
   }
 
   mapMovieCards = () => {
@@ -84,16 +73,13 @@ class DiscoverMovies extends Component {
   render() {
     return (
       <div>
-        <p>Content: Discover page for new movies</p>
         <div>{this.state.isLoading ? (
             <h1>Loading...</h1>
           ) : this.mapMovieCards()}</div>
         <br style = {{"line-height":50}}></br>
-        <div textAlign="center"><Button variant="primary" href="http://localhost:3000/watchlist/" block>View Watchlist</Button></div>
+        <div textAlign="center"><Button variant="primary" href="http://localhost:3000/watchlist/" block>Go to Watchlist</Button></div>
         <br style = {{"line-height":50}}></br>
       </div>
     );
   }
 }
-
-export default DiscoverMovies;

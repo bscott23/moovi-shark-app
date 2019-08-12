@@ -4,7 +4,6 @@ import axios from "axios";
 
 const Movie = props => (
   <tr>
-    <td>{props.movie.username}</td>
     <td>{props.movie.title}</td>
     <td>{props.movie.overview}</td>
     <td>{props.movie.release_date.substring(0, 10)}</td>
@@ -69,7 +68,6 @@ export default class MoviesList extends Component {
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Username</th>
               <th>Title</th>
               <th>Overview</th>
               <th>Release Date</th>
