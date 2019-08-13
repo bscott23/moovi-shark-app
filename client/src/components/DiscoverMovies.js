@@ -17,7 +17,7 @@ export default class DiscoverMovies extends Component {
   }
 
   async componentDidMount() {
-    const res = await fetch("http://localhost:5000/discover/");
+    const res = await fetch("/discover/");
     this.setState({ discover: await res.json(), isLoading: false });
   }
 
@@ -33,7 +33,7 @@ export default class DiscoverMovies extends Component {
     };
     
     axios
-      .post("http://localhost:5000/watchlist/add", newMovie)
+      .post("/watchlist/add", newMovie)
       .then(res => console.log(res.data));
   }
 
@@ -77,7 +77,7 @@ export default class DiscoverMovies extends Component {
             <h1>Loading...</h1>
           ) : this.mapMovieCards()}</div>
         <br style = {{"line-height":50}}></br>
-        <div textAlign="center"><Button variant="primary" href="http://localhost:3000/watchlist/" block>Go to Watchlist</Button></div>
+        <div textAlign="center"><Button variant="primary" href="/watchlist/" block>Go to Watchlist</Button></div>
         <br style = {{"line-height":50}}></br>
       </div>
     );

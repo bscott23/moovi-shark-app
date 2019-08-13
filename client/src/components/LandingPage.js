@@ -14,7 +14,7 @@ export default class LandingPage extends Component {
           Start browsing movies now to add them to your Watchlist. 
         </p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="http://localhost:3000/discover/" role="button">
+          <a class="btn btn-primary btn-lg" href="/discover/" role="button">
             Watch movies like a shark
           </a>
         </p>
