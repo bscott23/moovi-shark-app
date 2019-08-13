@@ -45,8 +45,6 @@ export default class MoviesList extends Component {
     this.setState({
       movies: this.state.movies.filter(el => el._id !== id)
     });
-
-    window.location = '/watchlist'; // refreshes watchlist
   }
 
   movieList() {
