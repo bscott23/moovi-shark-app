@@ -8,7 +8,7 @@ export default class LandingPage extends Component {
       <Jumbotron>
         <h1 class="display-4">Welcome to MooviShark 🦈</h1>
         <p class="lead">
-          MooviShark is a streamlined movie discovery app. It limits superflouous details to keep you focused on consuming the latest, most popular movies.
+          MooviShark is a streamlined movie discovery app. It limits superfluous details to keep you focused on consuming the latest, most popular movies.
         </p>
         <hr class="my-4" />
         <p>
