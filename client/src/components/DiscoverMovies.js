@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Card from "react-bootstrap/Card";
 import CardDeck from "react-bootstrap/CardDeck";
 import Button from "react-bootstrap/Button";
+import Center from 'react-center';
 import axios from "axios";
 
 export default class DiscoverMovies extends Component {
@@ -77,9 +79,13 @@ export default class DiscoverMovies extends Component {
             <h1>Loading...</h1>
           ) : this.mapMovieCards()}</div>
         <br style = {{"line-height":50}}></br>
-        <div textAlign="center"><Button variant="primary" href="/watchlist/" block>Go to Watchlist</Button></div>
+        <Center><Link to="/watchlist" className="btn btn-primary btn-lg">Go to Watchlist</Link></Center>
         <br style = {{"line-height":50}}></br>
       </div>
     );
   }
 }
+
+
+
+//<Button variant="primary" href="/watchlist/" block>Go to Watchlist</Button>
