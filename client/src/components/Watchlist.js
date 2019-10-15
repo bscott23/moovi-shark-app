@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import CreateLabelModal from "./CreateLabelModal";
+import LabelManager from "./LabelManager";
 
 const Movie = props => (
   <tr>
@@ -76,7 +76,7 @@ export default class MoviesList extends Component {
           </thead>
           <tbody>{this.movieList()}</tbody>
         </table>
-        <CreateLabelModal />
+        <LabelManager />
       </div>
     );
   }
