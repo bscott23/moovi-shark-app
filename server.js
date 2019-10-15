@@ -24,10 +24,12 @@ connection.once('open', () => {
 const discoverRouter = require('./routes/discover');
 const watchlistRouter = require('./routes/watchlist');
 const usersRouter = require('./routes/users');
+const labelsRouter = require('./routes/labels');
 
 app.use('/discover', discoverRouter)
 app.use('/watchlist', watchlistRouter);
 app.use('/users', usersRouter);
+app.use('/labels', labelsRouter);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));

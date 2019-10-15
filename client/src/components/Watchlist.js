@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import LabelList from "./LabelList";
+
 const Movie = props => (
   <tr>
     <td>{props.movie.title}</td>
@@ -63,6 +65,7 @@ export default class MoviesList extends Component {
     return (
       <div>
         <h3>Movies</h3>
+        <Link to="/label-list" className="btn btn-primary btn-sm">Manage Labels</Link>
         <table className="table">
           <thead className="thead-light">
             <tr>
