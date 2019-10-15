@@ -7,6 +7,7 @@ const movieSchema = new Schema({
   title: { type: String, required: true },
   overview: { type: String, required: true },
   genres: [{ type: String, required: true }],
+  labels: [{type: mongoose.Schema.Types.ObjectId, ref: 'Label'}],
   release_date: { type: Date, required: true },
   poster_path: { type: String, required: true },
   movie_db_id: { type: Number, required: true }
