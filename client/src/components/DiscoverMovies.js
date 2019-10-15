@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
-import Card from "react-bootstrap/Card";
-import CardDeck from "react-bootstrap/CardDeck";
-import Button from "react-bootstrap/Button";
+import { Card, Button, CardDeck,  } from "react-bootstrap";
 import Center from 'react-center';
 import axios from "axios";
 

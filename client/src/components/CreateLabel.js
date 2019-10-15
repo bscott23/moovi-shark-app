@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Button, Modal, Forms } from "react-bootstrap";
 
 export default class CreateLabel extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class CreateLabel extends Component {
       label: this.state.label
     };
     console.log(newLabel);
-    
+
     axios
       .post("/labels/add", newLabel)
       .then(res => console.log(res.data));

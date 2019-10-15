@@ -7,8 +7,7 @@ import LandingPage from "./components/LandingPage";
 import MoviesList from "./components/Watchlist";
 import DiscoverMovies from "./components/DiscoverMovies";
 import CreateUser from "./components/CreateUser";
-import CreateLabel from "./components/CreateLabel";
-import LabelList from "./components/LabelList";
+import CreateLabelModal from "./components/CreateLabelModal";
 
 function App() {
   return (
@@ -21,8 +20,7 @@ function App() {
           <Route path="/watchlist" component={MoviesList} />
           <Route path="/discover" component={DiscoverMovies} />
           <Route path="/user" component={CreateUser} />
-          <Route path="/label" component={CreateLabel} />
-          <Route path="/label-list" component={LabelList} />
+          <Route path="/label-modal" component={CreateLabelModal} />
         </div>
     </Router>
   );

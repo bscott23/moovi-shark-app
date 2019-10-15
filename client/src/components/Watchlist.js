@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import LabelList from "./LabelList";
+import CreateLabelModal from "./CreateLabelModal";
 
 const Movie = props => (
   <tr>
@@ -26,7 +26,9 @@ export default class MoviesList extends Component {
   constructor(props) {
     super(props);
     this.deleteMovie = this.deleteMovie.bind(this);
-    this.state = { movies: [] };
+    this.state = {
+      movies: []
+    };
   }
 
   componentDidMount() {
@@ -41,9 +43,7 @@ export default class MoviesList extends Component {
   }
 
   deleteMovie(id) {
-    axios
-      .delete("/watchlist/" + id)
-      .then(res => console.log(res.data));
+    axios.delete("/watchlist/" + id).then(res => console.log(res.data));
     this.setState({
       movies: this.state.movies.filter(el => el._id !== id)
     });
@@ -65,7 +65,6 @@ export default class MoviesList extends Component {
     return (
       <div>
         <h3>Movies</h3>
-        <Link to="/label-list" className="btn btn-primary btn-sm">Manage Labels</Link>
         <table className="table">
           <thead className="thead-light">
             <tr>
@@ -77,6 +76,7 @@ export default class MoviesList extends Component {
           </thead>
           <tbody>{this.movieList()}</tbody>
         </table>
+        <CreateLabelModal />
       </div>
     );
   }
